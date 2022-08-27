@@ -11,6 +11,23 @@
   </head>
 
   <body>
+    <header>
+     <span>LOGO</span>
+     
+      <li>
+        <%= link_to "About",root_path %>
+      </li> 
+      <li>
+        <%= link_to "商品一覧",admin_items_path %>
+      </li>
+      <li>
+        <%= link_to "新規登録",root_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン",admin_session_path %>
+      </li>
+    </header>
+    
     <%= yield %>
   </body>
 </html>
