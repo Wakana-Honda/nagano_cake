@@ -1,16 +1,19 @@
+<div class="container">
+ <div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 ">
+
+<h4>管理者ログイン</h4>
 
 <%= form_with model: @admin, url:admin_session_path do |f| %>
 
-<h2>管理者ログイン</h2>
-
   <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus:true, autocomplete:"email" %>
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email, autofocus:true, class:"email" %>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード %><br />
-    <%= f.password_field :password, autocomplete:"current-password",class:"password" %>
+    <%= f.label :パスワード %>
+    <%= f.password_field :password, autocomplete:"off",class:"password" %>
   </div>
   
   <div class="actions">
@@ -20,3 +23,7 @@
 <% end %>
 
 <%= render "admin/shared/links" %>
+
+</div>
+</div>
+</div>

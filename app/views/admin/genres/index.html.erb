@@ -1,6 +1,18 @@
 <h2>ジャンル一覧・追加</h2>
 
+<%= form_with model: [:admin,@genre] do |f| %>
 <div>ジャンル名</div>
-<div>新規登録</div>
+ <%= f.text_field :name %>
+ <%= f.submit '新規登録' %>
+<% end %>
 
 <div>ジャンル</div>
+<table class="table">
+    <tbody>
+     <tr></tr>    
+     <tr>
+      <th>ケーキ</th>
+      <th>編集する</th>
+     </tr>
+    </tbody>
+  </table>  

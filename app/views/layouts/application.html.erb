@@ -8,11 +8,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/1ae5e8c4d7.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
+   <header class="shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light">
+     <div class="container">
+      <a class="navbar-brand" href="/">
+        <span>LOGO</span>
+      </a>
+     <ul class="navbar-nav" style="flex-direction: row;">
+       
      <% if admin_signed_in? %>
-      <li>
+      <li class="nav-item">
         <%= link_to "商品一覧",admin_items_path %>
       </li>
       <li>
@@ -40,10 +49,20 @@
       <li>
         <%= link_to "ログイン",admin_session_path %>
       </li>
-     <% end %> 
-      
+     <% end %>
+      </ul>
+      </div>
+      <form class="form-inline my-2 my-lg-0">
+      <input class= "form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+         <i class="fa-thin fa-magnifying-glass"></i>
+      </button>
+     </nav> 
     </header>
     
     <%= yield %>
   </body>
+  <footer class="shadow-sm">
+    #footer
+  </footer>
 </html>
