@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 # URL /admin/sign_in ...
  devise_for :admin, skip: [:registrations, :passwords] ,controllers:{
    sessions:"admin/sessions"
-  }
-  
+ }
+
 # 顧客用
 # URL /customers/sign_in ...
  devise_for :customers,skip:[:passwords],controllers:{
@@ -17,15 +17,18 @@ Rails.application.routes.draw do
    root to:'homes#top'
     get '/about'=>"homes#about"
     resources:items,only:[:index,:show]
-    resources:customers,only:[:show,:edit,:update]
-    get 'customers/unsbscribe'=>"customers#subscribe"
+    #resources:customers,only:[:show,:edit,:update]
+    get 'customers/my_page'=>"customers#show"
+    get 'customers/infomation/edit'=>"customers#edit"
+    patch 'customers/infomation'=>"customers#update"
+    get 'customers/unsubscribe'=>"customers#unsubscribe"
     patch 'customers/withdraw'=>"customers#withdraw"
     resources:cart_items,only:[:index,:update,:destroy,:create]
     delete 'cart_items/destory_all'=>"cart_items#destory_all"
     resources:orders,only:[:new,:create,:index,:show]
     post 'orders/confirm'=>"orders#confirm"
     get 'orders/complete'=>"orders#complete"
-    #thanks letter
+    get 'orders/thanksletter'=>"orders#thanksletter"
     resources:adresses,only:[:index,:edit,:create,:update,:destroy]
   end
   

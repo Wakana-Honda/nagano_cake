@@ -5,20 +5,34 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
-     <span>LOGO</span>
-     
-      <li>
-        <%= link_to "About",root_path %>
-      </li> 
+     <% if admin_signed_in? %>
       <li>
         <%= link_to "商品一覧",admin_items_path %>
+      </li>
+      <li>
+        <%= link_to "会員一覧",admin_customers_path %>
+      </li>
+      <li>
+        <%= link_to "注文履歴一覧",admin_path %>
+      </li>
+      <li>
+        <%= link_to "ジャンル一覧",admin_genres_path %>
+      </li>
+      <li>
+        <%= link_to "ログアウト",destroy_admin_session_path,method: :delete %>
+      </li>
+     <% else %>
+      <li>
+        <%= link_to "About",admin_items_path %>
+      </li> 
+      <li>
+        <%= link_to "商品一覧",root_path %>
       </li>
       <li>
         <%= link_to "新規登録",root_path %>
@@ -26,6 +40,8 @@
       <li>
         <%= link_to "ログイン",admin_session_path %>
       </li>
+     <% end %> 
+      
     </header>
     
     <%= yield %>
