@@ -1,10 +1,15 @@
 <h2>商品新規登録</h2>
 
-<div>商品画像</div>
-<div>商品名</div>
-<div>商品説明</div>
-<div>ジャンル</div>
-<div>税抜価格</div>
-<div>販売ステータス</div>
-
-<div>新規登録</div>
+<%= form_with model:[:admin,@item],local:true do |f| %>
+ <%= f.label :商品画像 %>
+ <%= f.label :商品名 %>
+ <%= f.text_field :name,class:"name" %>
+ <%= f.label :商品説明 %>
+ <%= f.text_field :introduction,class:"name" %>
+ <%= f.label :ジャンル %>
+  <!--ジャンル選択-->genre_id
+ <%= f.label :税抜価格 %>
+ <%= f.text_field :price,class:"name" %>
+ <!--販売ステータス-->ラジオボタン is_active
+ <%= f.submit '新規登録',class:"btn btn-success" %>
+<% end %>

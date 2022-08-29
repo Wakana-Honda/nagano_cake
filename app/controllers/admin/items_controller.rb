@@ -1,9 +1,34 @@
 class Admin::ItemsController < ApplicationController
-  
-  def index
+ 
+  def new
+    @item=Item.new
+  end
+ 
+  def create
+    @item=Item.new(item_params)
+    # @items=Items.all
+    # @item.genre_id = current_genre.id
+    @item.save
+    redirect_to admin_item_path(@item)
   end
   
-  def create
+  def show
+   @item = Item.find(params[:id])
+   @genre = @item.genre
+  end
+  
+  def index
+  @item = Item.all
+  # @item=Item.new
+  # @item = Item.find(params[:id])
+  # @user = @book.user
+  end
+  
+  private
+
+  def item_params
+    params.require(:item).permit(:name,:introduction,:price)
+    # ひとまずネームだけ他も追加してね
   end
   
 end

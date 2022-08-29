@@ -1,3 +1,5 @@
+<div class="container px-5 px-sm-0">
+ 
 <h4>ジャンル編集</h4>
 
 <%= form_with model: [:admin,@genre] do |f| %>
@@ -5,3 +7,5 @@
  <%= f.text_field :name,class:"name" %>
  <%= f.submit '変更を保存',class:"btn btn-success" %>
 <% end %>
+
+</div>
