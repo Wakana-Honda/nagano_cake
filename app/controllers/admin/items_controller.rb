@@ -9,7 +9,7 @@ class Admin::ItemsController < ApplicationController
     # @items=Items.all
     # @item.genre_id = current_genre.id
     @item.save
-    redirect_to admin_item_path(@item)
+    redirect_to admin_item_path(@item.id)
   end
   
   def show
@@ -25,10 +25,21 @@ class Admin::ItemsController < ApplicationController
   # @user = @book.user
   end
   
+  def edit
+   @item = Item.find(params[:id])
+   @genre = @item.genre
+  end
+  
+  def update
+   @item = Item.find(params[:id])
+   @item.update(item_params)
+    redirect_to admin_item_path(@item.id)
+  end
+  
   private
 
   def item_params
-    params.require(:item).permit(:imege_id,:name,:introduction,:price,)
+    params.require(:item).permit(:imege_id,:name,:introduction,:price,:genre_id,:is_active)
     # ひとまずネームだけ他も追加してね
   end
   
