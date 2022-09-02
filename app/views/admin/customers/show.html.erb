@@ -1,13 +1,41 @@
 <h2>名前さんの会員紹介</h2>
 
-<div>会員ID</div>
-<div>氏名</div>
-<div>フリガナ</div>
-<div>郵便番号</div>
-<div>住所</div>
-<div>電話番号</div>
-<div>メールアドレス</div>
-<div>会員ステータス</div>
+<tbody>
+   <tr>
+    <td>会員ID</td>
+    <td></td>
+   </tr>
+   <tr>
+    <td>氏名</td>
+    <td></td>
+  </tr>
+   <tr>
+    <td>フリガナ</td>
+    <td></td>
+   </tr>
+   <tr>
+    <td>郵便番号</td>
+    <td></td>
+   </tr>
+   <tr>
+    <td>住所</td>
+    <td></td>
+   </tr>
+   <tr>
+    <td>電話番号</td>
+    <td></td>
+   </tr>
+   <tr>
+    <td>メールアドレス</td>
+    <td></td>
+   </tr>
+   <tr>
+    <td>会員ステータス</td>
+    <td></td>
+   </tr>
 
-編集するボタン
-注文履歴一覧を見るボタン
+   <tr>
+    <td><%= link_to "編集する", admin_customers_path,class:"btn btn-sm btn-success" %></td>
+    <td><%= link_to "注文履歴一覧を見る", admin_customers_path,class:"btn btn-sm btn-primary" %></td>
+   </tr>  
+  </tbody>
