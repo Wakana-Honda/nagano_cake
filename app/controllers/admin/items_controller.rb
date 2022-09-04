@@ -40,7 +40,6 @@ class Admin::ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:imege_id,:name,:introduction,:price,:genre_id,:is_active)
-    # ひとまずネームだけ他も追加してね
   end
   
 end

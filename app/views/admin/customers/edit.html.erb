@@ -1,12 +1,47 @@
-<h2>名前さんの会員情報編集</h2>
 
-<div>会員ID</div>
-<div>氏名</div>
-<div>フリガナ</div>
-<div>郵便番号</div>
-<div>住所</div>
-<div>電話番号</div>
-<div>メールアドレス</div>
-<div>会員ステータス</div>
+<h3><%= @customer.first_name %><%= @customer.last_name %>の会員情報編集</h3>
 
-変更を保存
+<%= form_with model: @customer do |f| %>
+
+<div class="field">
+  <%= f.label :会員ID %>
+  <%=@customer.id %>
+</div>
+
+<div class="field">
+  <%= f.label :名前 %>
+  (性)<%= f.text_field :last_name %>
+  (名)<%= f.text_field :first_name %>
+</div>
+
+<div class="field">
+  <%= f.label :フリガナ %>
+  (セイ)<%= f.text_field :last_name_kana %>
+  (メイ)<%= f.text_field :first_name_kana %>
+</div>
+
+<div class="field">
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+</div>
+
+<div class="field">
+    <%= f.label :郵便番号（ハイフンなし） %>
+    <%= f.text_field :postal_code %>
+</div>
+
+<div class="field">
+    <%= f.label :住所 %>
+    <%= f.text_field :adress %>
+</div>
+
+<div class="field">
+    <%= f.label :電話番号（ハイフンなし）%>
+    <%= f.text_field :telephone_number %>
+</div>
+  
+  <div class="actions">
+    <%= f.submit "変更を保存",class:"btn btn-sm btn-success"%>
+  </div>
+
+<% end %>
