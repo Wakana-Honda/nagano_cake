@@ -1,6 +1,32 @@
-#管理者　トップページ　注文履歴一覧画面
-<h1>注文履歴一覧</h1>
-<div>購入日時</div>
-<div>購入者</div>
-<div>注文個数</div>
-<div>注文ステータス</div>
+<div class=container>
+
+<div class="container">
+ <div class="p-3 mb-2 bg-light text-dark">会員一覧</div>
+</div>
+
+ <table class="table">
+   <thead>
+    <tr>
+     <th>購入日時</th>
+     <th>購入者</th>
+     <th>注文個数</th>
+     <th>注文ステータス</th>
+     <th colspan="3"></th>
+    </tr>
+   </thead>
+   
+   <tbody>
+    <% @orders.each do |order| %>
+   <tr>
+    <th>購入日時</th>
+    <th>購入者</th>
+    <th>注文個数</th>
+    <th>注文ステータス</th>
+   </tr>
+   <% end %>
+  </tbody>
+  
+  </table> 
+  
+  
+</div>

@@ -1,7 +1,7 @@
 
 <h3><%= @customer.first_name %><%= @customer.last_name %>の会員情報編集</h3>
 
-<%= form_with model: @customer do |f| %>
+<%= form_with model: @customer,url:admin_customer_path(@customer.id),method: :patch do |f| %>
 
 <div class="field">
   <%= f.label :会員ID %>
@@ -10,14 +10,14 @@
 
 <div class="field">
   <%= f.label :名前 %>
-  (性)<%= f.text_field :last_name %>
-  (名)<%= f.text_field :first_name %>
+  (性)<%= f.text_field :first_name %>
+  (名)<%= f.text_field :last_name %>
 </div>
 
 <div class="field">
   <%= f.label :フリガナ %>
-  (セイ)<%= f.text_field :last_name_kana %>
-  (メイ)<%= f.text_field :first_name_kana %>
+  (セイ)<%= f.text_field :first_name_kana %>
+  (メイ)<%= f.text_field :last_name_kana %>
 </div>
 
 <div class="field">
