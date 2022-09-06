@@ -1,0 +1,30 @@
+<h3>商品一覧</h3>
+<table class="table">
+   <tbody>
+   <% @item.each do |item|%>
+   <tr>
+    <th><%= item.id %></th>
+    <th>
+     <%= link_to item_path(item.id) do %>
+      <%= item.name %>
+     <% end %>
+    </th>
+    <th>¥<%= item.price %></th>
+   </tr>
+   <% end %>
+   </tbody>
+  </table> 
+  
+<h5>（サイドバー）ジャンル検索</h5>
+<div>  
+  <% @genres.each do |genre| %>
+    <%= genre.name %>
+  <% end %>
+</div>
+
+  
+  <div>
+   <%= paginate @items %>
+  </div>
+  
+
