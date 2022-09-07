@@ -11,16 +11,22 @@
   </head>
 
   <body>
-   <header class="shadow-sm">
-    <nav class="navbar navbar-expand-lg navbar-light">
+   <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary mt-3 mb-3">
      <div class="container">
+      <div class="row">
+       <!--<div class="col-lg-2">-->
       <a class="navbar-brand" href="/">
-        <span>LOGO</span>
+        <span>パティシエ　信濃川</span>
       </a>
-     <ul class="navbar-nav" style="flex-direction: row;">
+      </div>
+      <!--</div>-->
+    <div class="row">
+     <!--<div class="col-lg-2">-->
+     <ul class="navbar-nav " style="flex-direction: row;">
        
      <% if customer_signed_in? %>
-      <li class="nav-item">
+      <li>
         <%= link_to "マイページ",customers_my_page_path %>
       </li>
       <li>
@@ -50,20 +56,30 @@
         <%= link_to "ログアウト",destroy_admin_session_path,method: :delete %>
       </li>
      <% else %>
-      <li>
-        <%= link_to "About",admin_items_path %>
+      <li class="nav-item px-2">
+        <%= link_to admin_session_path, class:'nav-link text-light' do %>
+          About
+        <% end %>
       </li> 
-      <li>
-        <%= link_to "商品一覧",root_path %>
+      <li class="nav-item px-2">
+        <%= link_to admin_session_path, class:'nav-link text-light' do %>
+          商品一覧
+        <% end %>
       </li>
-      <li>
-        <%= link_to "新規登録",root_path %>
+      <li class="nav-item px-2">
+        <%= link_to admin_session_path, class:'nav-link text-light' do %>
+          新規登録
+        <% end %>
       </li>
-      <li>
-        <%= link_to "ログイン",admin_session_path %>
+      <li class="nav-item px-2">
+        <%= link_to admin_session_path, class:'nav-link text-light' do %>
+          ログイン
+        <% end %>
       </li>
      <% end %>
       </ul>
+      </div>
+      <!--</div>-->
       </div>
       <!--<form class="form-inline my-2 my-lg-0">-->
       <!--<input class= "form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >-->
@@ -72,10 +88,30 @@
       <!--</button>-->
      </nav> 
     </header>
-    
     <%= yield %>
-  <footer class="shadow-sm">
-    #footer
+    
+  <footer>
+   <div class="container">
+     <!--<div class="border-top border-dark" style="padding:30px;">-->
+     <div class="row">
+      <div class="mx-auto">
+      <a class="navbar-brand px-3" href="/">
+       <i class="fa-brands fa-twitter"></i>
+      </a>
+      <a class="navbar-brand px-3" href="/">
+       <i class="fa-brands fa-facebook"></i>
+      </a>
+      <a class="navbar-brand px-3" href="/">
+       <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a class="navbar-brand px-3" href="/">
+       <i class="fa-brands fa-line"></i>
+      </a>
+      </div>
+     </div>
+    </div>
+    </div>
   </footer>
+  
   </body>
 </html>
