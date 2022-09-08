@@ -8,5 +8,16 @@ class Public::ItemsController < ApplicationController
   def show
    @item = Item.find(params[:id])
    @genres = Genre.all
+   @cart_item=CartItem.new#(cart_item_params)
+   @cart_item.customer_id=current_customer.id
+   # @cart_item.save
+   #  redirect_to cart_items_path(@item.id)
   end
+  
+  # private
+
+  # def item_params
+  #   params.require(:cart_item).permit(:item_id, :amount)
+  # end
+  
 end

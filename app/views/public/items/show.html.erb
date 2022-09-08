@@ -1,3 +1,4 @@
+
 <table class="table">
   <tbody>
    <tr>
@@ -11,20 +12,18 @@
    </tr>
   </tbody>
   </table>
-  
-<%= form_with model: @item do |f| %>
-  <div class="form-group">
+
+<div>
+<%= form_with model:@cart_item do |f| %>
+
   <%= f.label :個数選択 %>
-  <%= f.number_field:amount,autocomplete:"off" %>
- </div>
+  <%= f.hidden_field :item_id,value:@item.id  %>
+  <%= f.select :amount, *[1..10] %>
+  
+  
+  <%= f.submit "カートに入れる", class:"btn btn-sm btn-success" %>
+  <%= link_to "カートに入れる", cart_items_path(@item.id),class:"btn btn-sm btn-success" %></td>-->
+
 <% end %>
 
-<%= link_to "カートに入れる", cart_items_path(@itrm.id),class:"btn btn-sm btn-success" %></td>
-
-
-<h5>（サイドバー）ジャンル検索</h5>
-<div>  
-  <% @genres.each do |genre| %>
-    <%= genre.name %>
-  <% end %>
 </div>
