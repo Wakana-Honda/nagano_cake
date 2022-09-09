@@ -8,10 +8,12 @@ class Public::ItemsController < ApplicationController
   def show
    @item = Item.find(params[:id])
    @genres = Genre.all
-   @cart_item=CartItem.new#(cart_item_params)
-   @cart_item.customer_id=current_customer.id
+   # カートアイテムに送るための記述
+   @cart_item=CartItem.new
+   # @cart_item.customer_id=current_customer.id
+   # ユーザーidの取得
    # @cart_item.save
-   #  redirect_to cart_items_path(@item.id)
+   # redirect_to cart_items_path
   end
   
   # private

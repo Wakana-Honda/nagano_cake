@@ -1,3 +1,11 @@
 <h3>ショッピングカート</h3>
 
 <% @cart_items.each do |cart_item|%>
+
+ <div>
+  <p>商品名<%= @cart_item.item_neme %></p>
+
+  <p>数量：<%= cart_item.amount %></p>
+ </div>
+  
+<% end %>
