@@ -26,34 +26,52 @@
      <ul class="navbar-nav " style="flex-direction: row;">
        
      <% if customer_signed_in? %>
-      <li>
-        <%= link_to "マイページ",customers_my_page_path %>
+      <li class="nav-item px-2">
+        <%= link_to customers_my_page_path, class:'nav-link text-light' do %>
+         マイページ
+        <% end %>
       </li>
-      <li>
-        <%= link_to "商品一覧",items_path %>
+      <li class="nav-item px-2">
+        <%= link_to items_path, class:'nav-link text-light' do %>
+         商品一覧
+        <% end %>
       </li>
-      <li>
-        <%= link_to "カート",cart_items_path %>
+      <li class="nav-item px-2">
+        <%= link_to cart_items_path, class:'nav-link text-light' do %>
+        カート
+       <% end %>
       </li>
-      <li>
-        <%= link_to "ログアウト",destroy_customer_session_path,method: :delete %>
+      <li class="nav-item px-2">
+        <%= link_to destroy_customer_session_path,method: :delete, class:'nav-link text-light' do %>
+        ログアウト
+        <% end %>
       </li>
      <% elsif admin_signed_in? %>
-      <li class="nav-item">
-        <%= link_to "商品一覧",admin_items_path %>
+      <li class="nav-item px-2">
+        <%= link_to admin_items_path,class:'nav-link text-light' do %>
+         商品一覧
+        <% end %>
       </li>
-      <li>
-        <%= link_to "会員一覧",admin_customers_path %>
+      <li class="nav-item px-2">
+        <%= link_to admin_customers_path,class:'nav-link text-light' do %>
+        会員一覧
+        <% end %>
       </li>
       <!--id作成してからpath設定-->
-      <li>
-        <%= link_to "注文履歴一覧",admin_path %>
+      <li class="nav-item px-2">
+        <%= link_to admin_path,class:'nav-link text-light' do %>
+        注文履歴
+        <% end %>
       </li>
-      <li>
-        <%= link_to "ジャンル一覧",admin_genres_path %>
+      <li class="nav-item px-2">
+        <%= link_to admin_genres_path,class:'nav-link text-light' do %>
+        ジャンル一覧
+        <% end %>
       </li>
-      <li>
-        <%= link_to "ログアウト",destroy_admin_session_path,method: :delete %>
+      <li class="nav-item px-2">
+        <%= link_to destroy_admin_session_path,method: :delete,class:'nav-link text-light' do %>
+        ログアウト
+        <% end %>
       </li>
      <% else %>
       <li class="nav-item px-2">
@@ -79,13 +97,8 @@
      <% end %>
       </ul>
       </div>
-      <!--</div>-->
       </div>
-      <!--<form class="form-inline my-2 my-lg-0">-->
-      <!--<input class= "form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >-->
-      <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">-->
-      <!--   <i class="fa-thin fa-magnifying-glass"></i>-->
-      <!--</button>-->
+      
      </nav> 
     </header>
     <%= yield %>
