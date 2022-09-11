@@ -9,16 +9,34 @@ class Public::CartItemsController < ApplicationController
  def create
   # binding.pry
   @cart_item = CartItem.new(cart_item_params)
-  @item = Item.find(cart_item_params[:item_id])
-  # if CartItem.find_by(item_id:item_id)
-  #  puts "a"
-  #  else
-  #  puts "b"
-  # end
   @cart_item.customer_id = current_customer.id
-  @cart_item.save
+  @item = Item.find(cart_item_params[:item_id])
+  
+  if CartItem.find_by(item_id:params[:cart_item][:item_id]).present?
+   cart_item = CartItem.find_by(item_id:params[:cart_item][:item_id])
+   cart_item.amount += params[:cart_item][:amount].to_i
+   cart_item.save
+   redirect_to cart_items_path
+  else @cart_item.save
+   @cart_items = CartItem.all
+   @cart_items = current_customer.cart_items
+   redirect_to cart_items_path
+  end
+ end
+ 
+ def update
+  @cart_item = CartItem.find(params[:id])
+  @cart_item.update(cart_item_params)
   redirect_to cart_items_path
  end
+ 
+ def destroy
+  cart_item = CartItem.find(params[:id])
+  cart_item.destroy
+  @cart_items = CartItem.all
+  redirect_to cart_items_path
+ end
+ 
  
  def destroy_all
    @cart_items = CartItem.all
