@@ -1,9 +1,14 @@
 class Public::OrdersController < ApplicationController
-  def new
+def new
    @customer = current_customer
+   @order = Order.new
+   @total = 0
   end
   
   def comfirm
+   @cart_items = CartItem.all
+   @orders = Order.all
+   @total = 0
   end
   
   def create
@@ -16,6 +21,5 @@ class Public::OrdersController < ApplicationController
   end
   
   def show
-  end
-
+  
 end
