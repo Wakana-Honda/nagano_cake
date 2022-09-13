@@ -5,13 +5,18 @@ def new
    @total = 0
   end
   
-  def comfirm
+  def confirm
    @cart_items = CartItem.all
    @orders = Order.all
    @total = 0
   end
   
   def create
+   @customer = current_customer
+   @order = Order.new
+   @order.save
+   redirect_to orders_confirm_path
+   
   end
   
   def complete
@@ -21,5 +26,11 @@ def new
   end
   
   def show
+  end
+  
+  private
+  def cart_item_params
+   params.require(:cart_item).permit(:postal_code, :adress,:name)
+  end
   
 end
