@@ -1,19 +1,28 @@
 <h3>注文情報入力</h3>
 
-<%= form_with(model: @order, local: true) do |f| %>
-
 <div><strong>支払方法</strong></div>
 
+<%= form_with model: @order do |f| %>
+
 <div>
-<%= f.radio_button :payment, :credit %>
-<%= f.label :payment, 'クレジットカード' %>
+<%= f.radio_button :payment_method,"credit_card" %>
+<%= f.label :payment_method, "クレジットカード" %>
+<!--Order.payment_methods.key(0)-->
+<!--payment_methods_i18n[:credit_card]-->
 </div>
 <div>
-<%= f.radio_button :payment, :bank %>
-<%= f.label :payment, '銀行振込' %>
+<%= f.radio_button :payment_method, "transfer" %>
+<%= f.label :payment_method, "銀行振込"%>
+<!--Order.payment_methods.key(1)-->
+<!--Order.payment_methods_i18n[:transfer]-->
 </div>
 
+<% end %>
+
+<%= form_with model: @order do |f| %>
+
 <div><strong>お届け先</strong></div>
+
 
 <div>
 <%= f.radio_button :adress, '0' %>
