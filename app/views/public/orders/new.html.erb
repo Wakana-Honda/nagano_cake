@@ -23,7 +23,6 @@
 
 <div><strong>お届け先</strong></div>
 
-
 <div>
 <%= f.radio_button :adress, '0' %>
 <%= f.label :adress, 'ご自身の住所', value: 0 %>
@@ -35,8 +34,8 @@
 
 <div>
 <%= f.radio_button :adress, '1' %>
-<%= f.label :adress, '登録済住所から選択', value: 1 %>
-<!--住所一覧ページ作ってから-->
+<%= f.label :adress, '登録済住所から選択', value: 1 %><br>
+<%= f.select :adress_id, options_from_collection_for_select(Adress.all, :id, :adress_display) %>
 </div>
 
 <div>

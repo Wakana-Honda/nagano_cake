@@ -1,11 +1,13 @@
 class Public::OrdersController < ApplicationController
 def new
    @customer = current_customer
+   @adresses = Adress.all
    @order = Order.new
    @total = 0
   end
   
   def confirm
+   # binding.pry
    @cart_items = CartItem.all
    @orders = Order.all
    @total = 0
