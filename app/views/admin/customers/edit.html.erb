@@ -1,47 +1,49 @@
 
 <h3><%= @customer.first_name %><%= @customer.last_name %>の会員情報編集</h3>
 
+<table>
 <%= form_with model: @customer,url:admin_customer_path(@customer.id),method: :patch do |f| %>
 
-<div class="field">
-  <%= f.label :会員ID %>
-  <%=@customer.id %>
-</div>
-
-<div class="field">
-  <%= f.label :名前 %>
-  (性)<%= f.text_field :first_name %>
-  (名)<%= f.text_field :last_name %>
-</div>
-
-<div class="field">
-  <%= f.label :フリガナ %>
-  (セイ)<%= f.text_field :first_name_kana %>
-  (メイ)<%= f.text_field :last_name_kana %>
-</div>
-
-<div class="field">
-    <%= f.label :メールアドレス %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-</div>
-
-<div class="field">
-    <%= f.label :郵便番号（ハイフンなし） %>
-    <%= f.text_field :postal_code %>
-</div>
-
-<div class="field">
-    <%= f.label :住所 %>
-    <%= f.text_field :adress %>
-</div>
-
-<div class="field">
-    <%= f.label :電話番号（ハイフンなし）%>
-    <%= f.text_field :telephone_number %>
-</div>
-  
-  <div class="actions">
-    <%= f.submit "変更を保存",class:"btn btn-sm btn-success"%>
-  </div>
-
+ <tbody>
+ <tr>
+  <th><%= f.label :会員ID %></th>
+  <td><%=@customer.id %></td>
+ </tr>
+ <tr>
+  <th><%= f.label :名前 %></th>
+  <td><%= f.text_field :first_name %><%= f.text_field :last_name %></td>
+ </tr>
+ <tr>
+  <th><%= f.label :フリガナ %></th>
+  <td><%= f.text_field :first_name_kana %><%= f.text_field :last_name_kana %></td>
+ </tr>
+ <tr>
+  <th><%= f.label :メールアドレス %></th>
+  <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+ </tr>
+ <tr>
+  <th><%= f.label :郵便番号（ハイフンなし） %></th>
+  <td><%= f.text_field :postal_code %></td>
+ </tr>
+  <tr>  
+   <th><%= f.label :住所 %></th>
+   <td><%= f.text_field :adress %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :電話番号（ハイフンなし）%></th>
+    <td><%= f.text_field :telephone_number %></td>
+  </tr>
+  <tr>
+    <th>会員ステータス</th>
+    <td>有効・無効</td>
+  </tr>
+ </tbody>
+ 
+ <%= f.submit "変更を保存",class:"btn btn-sm btn-success"%>
+ 
 <% end %>
+
+</table>
+
+
+

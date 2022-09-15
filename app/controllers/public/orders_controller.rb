@@ -1,5 +1,5 @@
 class Public::OrdersController < ApplicationController
-def new
+  def new
    @customer = current_customer
    @adresses = Adress.all
    @order = Order.new
@@ -16,10 +16,10 @@ def new
   end
   
   def create
-   @customer = current_customer
-   @order = Order.new
-   @order.save
-   redirect_to orders_confirm_path
+   # @customer = current_customer
+    @order = Order.new
+    @order.save
+    redirect_to orders_confirm_path
    
   end
   
@@ -34,7 +34,7 @@ def new
   
   private
   def order_params
-   params.require(:order).permit(:payment_method,:postal_code,:adress,:name)
+   params.permit(:payment,:postal_code,:adress,:name)
   end
   
 end

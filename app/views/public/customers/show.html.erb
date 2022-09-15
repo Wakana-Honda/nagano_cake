@@ -1,6 +1,7 @@
 <h3>マイページ</h3>
 
 <div>登録情報</div>
+<%= link_to "編集する",customers_infomation_edit_path,class:"btn btn-success" %>
 
 <table class="table table-bordered border-dark">
   
@@ -13,6 +14,10 @@
   
 <tr>
 <th>配送先</th>
+<td><%= link_to "一覧を見る",adresses_path,class:"btn btn-primary" %></td>
+</tr>
+<tr>
+<th>注文履歴</th>
 <td><%= link_to "一覧を見る",adresses_path,class:"btn btn-primary" %></td>
 </tr>
 
