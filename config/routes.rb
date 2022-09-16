@@ -33,10 +33,13 @@ Rails.application.routes.draw do
      end
     end
     # delete 'cart_items/destory_all'=>"cart_items#destory_all"
-    resources:orders,only:[:new,:create,:index,:show]
-    post 'orders/confirm'=>"orders#confirm"
-    get 'orders/complete'=>"orders#complete"
-    get 'orders/thanksletter'=>"orders#thanksletter"
+    resources:orders,only:[:new,:create,:index,:show] do
+    collection do
+     post '/confirm'=>"orders#confirm"
+     get '/complete'=>"orders#complete"
+     get '/thanksletter'=>"orders#thanksletter"
+    end
+   end
     resources:adresses,only:[:index,:edit,:create,:update,:destroy]
   end
   

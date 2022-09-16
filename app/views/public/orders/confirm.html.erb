@@ -29,12 +29,11 @@
 </table>
 
 <div>支払方法</div>
-payment_method
+<%= @order.payment_method %>
 
 <div>お届け先</div>
-postal_code,adress
-name
-
+ <%= @order.order_postal_code %><%= @order.order_adress %>
+  <%= @order.order_receiver_name %>
 <!--<div><strong>支払方法</strong></div>-->
 <!--  order.payment %>-->
 <!--<div><strong>お届け先</strong></div>-->
