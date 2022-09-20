@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'customers/show'
 # 管理者用
 # URL /admin/sign_in ...
  devise_for :admin, skip: [:registrations, :passwords] ,controllers:{
@@ -20,7 +19,6 @@ Rails.application.routes.draw do
     root to:'homes#top'
     get '/about'=>"homes#about"
     resources:items,only:[:index,:show]
-    #resources:customers,only:[:show,:edit,:update]
     get 'customers/my_page'=>"customers#show"
     get 'customers/infomation/edit'=>"customers#edit"
     patch 'customers/infomation'=>"customers#update"
@@ -52,8 +50,5 @@ Rails.application.routes.draw do
     resources:order_details,only:[:update]   
   end
   
- get 'customers/show' => 'current#show'
- resources :customers, only: [:show]
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
