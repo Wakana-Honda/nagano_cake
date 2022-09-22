@@ -61,8 +61,10 @@
   <%= f.hidden_field :adress, value: @order.adress %>
   <%= f.hidden_field :name, value: @order.name %>
   <%= f.hidden_field :total_payment, value: @order.total_payment %>
-  <%= f.hidden_field :name, value: @cart_item.item.name %>
-
+ 
+ <!--<= form_with model: @cart_item, url:orders_path, local:true do |f| %>-->
+  <!--<= f.hidden_field :name, value: @cart_item %>-->
+ <!--< end %>-->
   
   <div class="actions">
       <%= f.submit "購入を確定する", class: "btn btn-success" %>
