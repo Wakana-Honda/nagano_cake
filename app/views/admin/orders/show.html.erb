@@ -1,12 +1,11 @@
-<div class=container>
 
 <div class="container">
  <div class="p-3 mb-2 bg-light text-dark">注文詳細</div>
 </div>
 
  <table class="table">
-  <tr><th>購入者</th><td></td></tr>
-  <tr><th>注文日</th><td></td></tr>
+  <tr><th>購入者</th><td><%= @order.name %></td></tr>
+  <tr><th>注文日</th><td><%= @order.created_at.strftime('%Y/%m/%d') %></td></tr>
   <tr><th>配送先</th><td></td></tr>
   <tr><th>支払方法</th><td></td></tr>
   <tr><th>注文ステータス</th><td></td></tr>
@@ -25,22 +24,15 @@
   </thead>
   
   <tbody>
-   <% @orders.each do |customer| %>
    <tr>
-    <th><%= customer.id %></th>
-    <th>
-     <%= link_to admin_customer_path(customer.id) do %>
-     <%= customer.first_name %><%= customer.last_name %>
-     <% end %>
-    </th>
-    <th><%= customer.email %></th>
-    <th>有効or退会</th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>有効or退会</td>
    </tr>
-  <% end %>
   </tbody>
 </table>
 
-</div>
 
 
 

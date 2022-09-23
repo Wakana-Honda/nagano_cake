@@ -30,7 +30,6 @@ Rails.application.routes.draw do
       delete 'destroy_all'=>"cart_items#destroy_all"
      end
     end
-    # delete 'cart_items/destory_all'=>"cart_items#destory_all"
     resources:orders,only:[:new,:create,:index,:show] do
     collection do
      post '/confirm'=>"orders#confirm"
