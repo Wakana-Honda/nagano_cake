@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   has_many :cart_items, dependent: :destroy
-  has_one_attached :item_image
+  has_one_attached :image_id
   belongs_to :genre
   
   def get_item_image(width, height)
@@ -15,5 +15,8 @@ class Item < ApplicationRecord
  def with_tax_price
    (price * 1.1).floor
  end
+# enum is_active: { credit_card: 0, transfer: 1 }
+
 
 end
+

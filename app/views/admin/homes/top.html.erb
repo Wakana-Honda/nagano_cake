@@ -16,12 +16,8 @@
     <tr>
 
     <td><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_order_path(order) %></td>
-    <td><%= order.name %></td>
-    <td>
-     <!--< @order_items.each do |oder_item| %>-->
-      <!--<= order.order_details.amount %>-->
-     <!--< end %>-->
-    </td>
+    <td><%= order.customer.first_name %><%= order.customer.last_name %></td>
+    <!--<td><= order.order_item.amount %>--></td>-->
     <td></td>
 
     </tr>

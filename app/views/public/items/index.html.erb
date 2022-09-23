@@ -1,19 +1,25 @@
 <h3>商品一覧</h3>
 <table class="table">
-   <tbody>
    <% @item.each do |item|%>
    <tr>
-    <th><%= item.id %></th>
     <th>
-     <%= link_to item_path(item.id) do %>
-      <%= item.name %>
+    <%= link_to item_path(item.id) do %>
+     <% if item.image_id.attached? %>
+      <%= image_tag item.image_id, size: "100x100" %>
+     <% else %>
+      <%= image_tag 'no_image', size: "100x100" %>
      <% end %>
+    <% end %>
+    </th>
+    <th>
+      <%= item.name %>
     </th>
     <th>¥<%= item.price %></th>
    </tr>
    <% end %>
    </tbody>
   </table> 
+ 
   
 <h5>（サイドバー）ジャンル検索</h5>
 <div>  

@@ -1,6 +1,11 @@
 <h2>商品詳細</h2>
 
-<div>商品画像</div>
+ <% if @item.image_id.attached? %>
+  <%= image_tag @item.get_image_id(100,100) %>
+ <% else %>
+  <%= image_tag 'no_image', size: "100x100" %>
+ <% end %>
+
 
  <table class="table">
   <tbody>
