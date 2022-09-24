@@ -1,6 +1,13 @@
 
 <table class="table">
   <tbody>
+   <td>
+     <% if @item.image_id.attached? %>
+      <%= image_tag @item.image_id, size: "100x100" %>
+     <% else %>
+      <%= image_tag 'no_image', size: "100x100" %>
+     <% end %>
+    </td>
    <tr>
     <td><%= @item.name %></td>
    </tr>

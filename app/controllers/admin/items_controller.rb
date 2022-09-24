@@ -18,8 +18,7 @@ class Admin::ItemsController < ApplicationController
   end
   
   def index
-  @item = Item.all
-  @items = Item.page(params[:page]).per(2)
+  @item = Item.page(params[:page])
   # @item=Item.new
   # @item = Item.find(params[:id])
   # @user = @book.user

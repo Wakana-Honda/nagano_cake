@@ -1,4 +1,4 @@
-<h3>商品一覧</h3>
+<h3>商品一覧(全<%= @item.total_count %>件）</h3>
 <table class="table">
    <% @item.each do |item|%>
    <tr>
@@ -19,18 +19,11 @@
    <% end %>
    </tbody>
   </table> 
+  <%= paginate @item %>
  
   
-<h5>（サイドバー）ジャンル検索</h5>
-<div>  
-  <% @genres.each do |genre| %>
-    <%= genre.name %>
-  <% end %>
-</div>
 
   
-  <div>
-   <%= paginate @items %>
-  </div>
+  
   
 
