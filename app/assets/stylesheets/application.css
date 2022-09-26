@@ -6,7 +6,15 @@ background: linear-gradient(transparent 50%, #ffcccc 0%);
     background: linear-gradient(transparent 70%, #ffff66 70%);
 }
 
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
 
+.pagination>.active>a {     
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

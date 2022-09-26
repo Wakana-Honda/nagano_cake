@@ -1,10 +1,8 @@
-<div class = "container">
-
 <h3>商品一覧(全<%= @item.total_count %>件）</h3>
- <div class = "row mx-4">
+<table class="table">
    <% @item.each do |item|%>
-    <div class=”col”>
-    <div> 
+   <tr>
+    <th>
     <%= link_to item_path(item.id) do %>
      <% if item.image_id.attached? %>
       <%= image_tag item.image_id, size: "100x100" %>
@@ -12,20 +10,16 @@
       <%= image_tag 'no_image', size: "100x100" %>
      <% end %>
     <% end %>
-    </div>
-    <div><%= item.name %></div>
-    <div>¥<%= item.price %></div>
-   </div>
+    </th>
+    <th>
+      <%= item.name %>
+    </th>
+    <th>¥<%= item.price %></th>
+   </tr>
    <% end %>
-  </div>
- 
- <div class = "text-center">
+   </tbody>
+  </table> 
   <%= paginate @item %>
- </div> 
-  
- 
-  
-  </div>
  
   
 
