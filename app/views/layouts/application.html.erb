@@ -27,9 +27,11 @@
      <ul class="navbar-nav " style="flex-direction: row;">
        
      <% if customer_signed_in? %>
+      <div class="text-light py-1 pr-3">
       <li class="welcom-message">
         ようこそ、<%= "#{current_customer.last_name} #{current_customer.first_name}" %>さん!
       </li>
+      </div>
       <li class="nav-item px-2">
         <%= link_to customers_my_page_path, class:'nav-link text-light' do %>
          マイページ

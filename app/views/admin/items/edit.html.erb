@@ -1,9 +1,11 @@
-<h2>商品編集</h2>
+<div class="container">
+ 
+<div class="p-3 mb-3 bg-light text-dark">商品編集</div>
 
 <%= form_with model:[:admin,@item],local:true do |f| %>
  <div class="form-group">
   <%= f.label :商品画像 %>
-  <%= f.file_field :imege_id,class:"form-control-file user_image", accept:"image/*" %>
+  <%= f.file_field :image,class:"form-control-file user_image", accept:"image/*" %>
  </div>
  <div class="form-group">
   <%= f.label :商品名 %>
@@ -21,19 +23,11 @@
   <%= f.label :税抜価格 %>
   <%= f.text_field :price,class:"name",id:"item_price" %>円
  </div>
- <div class="from-group">
-  <%= f.label :販売ステータス %>
-  <!--id登録してね-->
-  <%= f.radio_button(:is_active, "販売中") %>
-  <%= f.label(:is_active, "販売中", value:"販売中") %>
-  
-  <%= f.radio_button(:is_active, "販売中止") %>
-  <%= f.label(:is_active, "販売中止", value:"販売中止") %>
-  
- </div>
  
  <div class="form-group">
   <%= f.submit '変更を保存',class:"btn btn-success" %>
  </div>
  
 <% end %>
+
+</div>

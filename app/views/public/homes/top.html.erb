@@ -11,12 +11,8 @@
   <% @item.each do |item|%>
    <div class=”col”>
     <div>
-     <%= link_to item_path(item.id) do %>
-     <% if item.image_id.attached? %>
-      <%= image_tag item.image_id, size: "100x100" %>
-     <% else %>
-      <%= image_tag 'no_image', size: "100x100" %>
-      <% end %>
+      <%= link_to item_path(item.id) do %>
+      <%= image_tag item.get_item_image(100,100) %>
      <% end %>
     </div>
     <div><%= item.name %></div>

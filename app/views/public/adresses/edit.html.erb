@@ -1,4 +1,6 @@
-<h4>配送先編集</h4>
+<div class="container">
+ 
+<div class="p-3 mb-3 bg-light text-dark">配送先編集</div>
 
 
 <%= form_with model: @adress,local:true do |f| %>
@@ -16,10 +18,12 @@
    <th><%= f.label :名前 %></th>
    <td><%= f.text_field :name %></td>
   </tr>
+ </table>
  
- <div class="actions">
+ <div class="actions text-right mb-3">
   <%= f.submit '変更内容を保存',class:"btn btn-success"%>
  </div>
  
- </table>
  <% end %>
+ 
+</div>

@@ -1,13 +1,12 @@
 class Public::AdressesController < ApplicationController
   def index
     @adress = Adress.new
-    @adresses = Adress.all
+    @adresses = current_customer.adresses
   end
   
   def create
     @adress = Adress.new(adress_params)
     @adress.customer_id = current_customer.id
-    @adresses = Adress.all
     @adress.save
      redirect_to adresses_path
   end

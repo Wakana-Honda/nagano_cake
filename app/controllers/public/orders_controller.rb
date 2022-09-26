@@ -1,6 +1,6 @@
 class Public::OrdersController < ApplicationController
   def new
-   @adresses = Adress.all
+   @adresses = current_customer.adresses
    @order = Order.new
    @customer = current_customer
   end
@@ -65,7 +65,7 @@ class Public::OrdersController < ApplicationController
   end
   
   def index 
-   @orders = Order.all
+   @orders = current_customer.orders
    cart_items = CartItem.all
   end
   
