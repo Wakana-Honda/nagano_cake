@@ -12,7 +12,15 @@
   <tr><th>住所</th><td><%=@customer.adress %></td></tr>
   <tr><th>電話番号</th><td><%= @customer.telephone_number %></td></tr>
   <tr><th>メールアドレス</th><td><%=@customer.email %></td></tr>
-  <tr><th>会員ステータス</th><td>有効or退会</td></tr>
+  <tr><th>会員ステータス</th>
+   <td>
+    <% if @customer.is_deleted == false %>
+      <div class ="text-success">有効</div>
+      <% else %>
+      <div class ="text-secondary">退会</div>
+    <% end %>
+   </td>
+  </tr>
 
    <tr>
     <td><%= link_to "編集する", edit_admin_customer_path,class:"btn btn-sm btn-success" %></td>

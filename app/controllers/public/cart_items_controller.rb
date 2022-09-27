@@ -1,4 +1,6 @@
 class Public::CartItemsController < ApplicationController
+ 
+ before_action :check_customer 
   
  def index
  @cart_items = CartItem.all
@@ -49,6 +51,13 @@ class Public::CartItemsController < ApplicationController
  private
   def cart_item_params
    params.require(:cart_item).permit(:item_id, :amount)
+ end
+ 
+ def check_customer
+  unless customer_signed_in?
+   flash[:alert]= "ログインしてください。"
+   redirect_to new_customer_session_path
+  end
  end
  
 end

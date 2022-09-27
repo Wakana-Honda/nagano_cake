@@ -18,7 +18,7 @@ class Public::CustomersController < ApplicationController
  
  def unsubscribe
   @customer = current_customer
-  # @customer = Customer.find_by(email:params[:customer]s[:email])
+  # @customer = Customer.find_by(email:params[:customer][:email])
  end
  
  def withdraw
