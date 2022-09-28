@@ -4,9 +4,9 @@
 <h4><strong>商品一覧</strong>(全<%= @item.total_count %>件）</h4>
 </div>
  
-<div class = "row mx-3 my-3 px-3">
+<div class = "row">
  <% @item.each do |item|%>
-  <div class=”col”>
+  <div class="mx-1 my-3 px-1">
    <div>
     <%= link_to item_path(item.id) do %>
      <%= image_tag item.get_item_image(100,100) %>

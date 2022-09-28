@@ -7,9 +7,9 @@
 
 <div calss="new-item">
  <h4><strong>新着商品</storong></h4>
- <div class = "row mx-1 px-3">
+ <div class = "row">
   <% @item.each do |item|%>
-   <div class=”col”>
+   <div class="mx-1 px-3 my-1">
     <div>
       <%= link_to item_path(item.id) do %>
       <%= image_tag item.get_item_image(100,100) %>
